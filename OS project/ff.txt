@@ -1,0 +1,34 @@
+for (int i = 0; i < num_profiles; i++) {
+             for (int j = i+1; j < num_profiles; j++) {
+                 if (profile[i].priority_level > profile[j].priority_level) {
+                     WiFi_Profile temp;
+                     temp = profile[i];
+                     profile[i] = profile[j];
+                     profile[j] = temp;
+                 }
+             }
+         }
+
+
+
+ *bandwidth alloctaor
+
+
+void allocateBandwidth(WiFi_Profile *wifi_profiles, int num_profiles, int total_bandwidth) {
+    int current_bandwidth = total_bandwidth;
+    int bandwidth_per_device = total_bandwidth / num_profiles;
+
+    for (int i = 0; i < num_profiles; i++) {
+        wifi_profiles[i].allocated_bandwidth = bandwidth_per_device;
+        current_bandwidth -= bandwidth_per_device;
+    }
+
+    // Distribute any remaining bandwidth in a round-robin fashion
+    int index = 0;
+    while (current_bandwidth > 0) {
+        wifi_profiles[index].allocated_bandwidth++;
+        current_bandwidth--;
+        index = (index + 1) % num_profiles;
+    }
+}
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        div {
+            border: ridge royalblue 5px;
+            background-color: aquamarine;
+            font-style: italic bold;
+            font-size: large;
+            text-align: left;
+        }
+        p.one {
+            word-spacing: 1cm;
+        }
+        p.two {
+            font-style: italic;
+            border: double 3px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quiz Game</h1>
+
+    <p class="two">There will be three questions. For all the questions Choose the correct option</p>
+    <div>
+        Q1) What is the capital of Japan?<br>
+        <label name="Q1">A)Tokyo</label><input type="radio"  id="Q1" name="Q1" value="a"><br>
+        <label name="Q1">B)Hong Kong</label><input type="radio"  id="Q1" name="Q1" value="b"><br>
+        <label name="Q1">C) Chennai</label><input type="radio"  id="Q1" name="Q1" value="c">
+    </div>
+
+    <div>
+        Q2) What is the square root of 49?<br>
+        <label name="Q2">A)10</label><input type="radio"  id="Q2" name="Q2" value="a"><br>
+        <label name="Q2">B)7</label><input type="radio"  id="Q2" name="Q2" value="b"><br>
+        <label name="Q2">C) 6</label><input type="radio"  id="Q2" name="Q2" value="c">
+    </div>
+
+    <div>
+        Q3) Where is the Taj Mahal Located?<br>
+        <label name="Q3">A)Japan</label><input type="radio"  id="Q3" name="Q3" value="a"><br>
+        <label name="Q3">B)Dubai</label><input type="radio"  id="Q3" name="Q3" value="b"><br>
+        <label name="Q3">C) India</label><input type="radio"  id="Q3" name="Q3" value="c">
+    </div>
+
+    <button onclick="check()">Submit Answers</button>
+    <p id="result"></p>
+
+    <script type="text/javascript">
+        function check() {
+            var Q1 = document.getElementByName("Q1");
+            var Q2 = document.getElementByName("Q2");
+            var Q3 = document.getElementByName("Q3");
+
+            var c1 = "a";
+            var c2 = "b";
+            var c3 = "c";
+            var count = 0;
+
+            let A = [1, 1, 1];
+
+            if (Q1 === c1) {
+                count++;
+            } else {
+                A[0] = 0;
+            }
+
+            if (Q2 === c2) {
+                count++;
+            } else {
+                A[1] = 0;
+            }
+
+            if (Q3 === c3) {
+                count++;
+            } else {
+                A[2] = 0;
+            }
+
+            if (count === 3) {
+                document.getElementById("result").innerHTML = "All the three questions are correct";
+    } else {
+        let wrongAnswers = "";
+        for (let i = 0; i < 3; i++) {
+            if (A[i] === 0) {
+                wrongAnswers += "Question " + (i + 1) + " is Wrong<br>";
+            }
+        }
+        document.getElementById("result").innerHTML = "You got " + count + "/3 of the questions right<br>" + wrongAnswers;
+    }
+}
+
+    </script>
+    
+
+</body>
+</html>

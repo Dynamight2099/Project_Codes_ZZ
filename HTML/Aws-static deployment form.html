@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #ff7e5f;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #feb47b;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Information Form</h1>
+        <form id="userForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="output" class="output hidden">
+            <h2>User Information</h2>
+            <p><strong>Name:</strong> <span id="outputName"></span></p>
+            <p><strong>Age:</strong> <span id="outputAge"></span></p>
+            <p><strong>Gender:</strong> <span id="outputGender"></span></p>
+            <p><strong>Country:</strong> <span id="outputCountry"></span></p>
+        </div>
+    </div>
+    <script type="java">
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var gender = document.getElementById('gender').value;
+            var country = document.getElementById('country').value;
+        
+            document.getElementById('outputName').innerText = name;
+            document.getElementById('outputAge').innerText = age;
+            document.getElementById('outputGender').innerText = gender;
+            document.getElementById('outputCountry').innerText = country;
+        
+            document.getElementById('output').classList.remove('hidden');
+        });
+        
+    </script>
+</body>
+</html>

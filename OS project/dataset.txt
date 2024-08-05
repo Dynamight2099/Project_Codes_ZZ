@@ -1,0 +1,10 @@
+Ab1-Host1            ; 192.168.1.20
+Ab2-Host2            ; 192.168.1.40
+Ab2-Host3            ; 192.168.1.60
+Ab2-Host1            ; 192.168.1.80
+MG-Host1             ; 192.168.1.30
+MG-Host2             ; 192.168.1.50
+Ab3-Host1            ; 192.168.1.10
+Delta_Block-Host1    ; 192.168.1.56
+Admin_Block-Host2    ; 192.168.1.70
+Nethaji-Host1        ; 192.168.1.90

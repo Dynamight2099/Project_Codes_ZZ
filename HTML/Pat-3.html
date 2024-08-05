@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pat-3</title>
+  <style>
+    h1 {
+      text-align: center;
+      font-style: italic;
+      font-weight: bold;
+      border: 5px ridge royalblue;
+      background-color: burlywood;
+      color: brown;
+    }
+    button {
+      align-items: center;
+      color: black;
+      height: 50px;
+      width: 300px;
+      text-align: center;
+      background-color: rgb(255, 106, 106);
+      font-size: 120%;
+      font-style: bold italic;
+    }
+    p.one
+    {color: black;  text-align: left;font-style: italic;font-size: large;}
+    body
+    {background-color: beige;}
+    p.two
+    {
+        border: ridge 5px; color: rgb(39, 0, 110); font-size: 120%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Marketing Foundation Coffee Sale</h1>
+  
+  <p class="two">
+    <label for="reg">How many Bag of Regular Coffee would you like?:</label>
+    <input id="reg" name="reg"  type="text"><br><br>
+    <label for="dec">How many Bag of Decaffeinated Coffee would you like?:</label>
+    <input id="dec" name="dec"  type="text"><br><br>
+    <label for="moc">How many Bag of Mocha Coffee would you like?:</label>
+    <input id="moc" name="moc"  type="text">
+  </p>
+
+  <div align="center">
+    <button type="button" onclick="Calc()">Click to purchase coffee</button>
+  </div>
+
+  <script type="text/javascript">
+    function Calc() {
+      var reg = document.getElementById("reg").value;
+      var dec = document.getElementById("dec").value;
+      var moc = document.getElementById("moc").value;
+      rega = (reg * 9);
+      deca = (dec * 8);
+      moca = (moc * 11);
+      var tot = 0, dis = 0;
+      tot = (rega) + (deca) + (moca);
+      if (tot > 100) {
+        dis = tot - 15;
+      }
+      document.getElementById("display").innerHTML="Billing Receipt" + "</br>------------------------------------------</br>"+
+      "1. Regular Coffee:</br>Quantity: " + reg + "</br>Price: " + rega + "$</br></br>"+"2. Decaffeinated Coffee:</br>Quantity: " + dec + "</br>Price: " 
+      + deca + "$</br></br>"+"3. Mocha Coffee:</br>Quantity: " + moc + "</br>Price: " + moca + "$</br></br>";
+      
+      if (tot > 100) {
+        document.getElementById("disp").innerHTML="Total: " + tot + "$</br>Discount Applicable:15$</br>Total After Discount: " + dis + "$</br></br";
+      } else {
+        document.getElementById("disp").innerHTML="Total Bill: " + tot + "$";
+      }
+      document.getElementById("dis").innerHTML="------------------------------------------</br>";
+    }
+  </script>
+  <p class="one" id="display"></p>
+  <p class="one" id="disp"></p>
+  <p class="one" id="dis"></p>
+</body>
+</html>

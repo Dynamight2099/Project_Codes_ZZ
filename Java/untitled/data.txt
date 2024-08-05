@@ -1,0 +1,13 @@
+bruh 1
+bruh  2
+bruh 3
+bru h 4555
+9859
+dkkdkd 8772
+
+
+
+class name<T>
+{
+
+}
